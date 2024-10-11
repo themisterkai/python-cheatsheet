@@ -7,11 +7,13 @@
 3. [Control Flow](#3-control-flow)
 4. [Functions](#4-functions)
 5. [Data Structures](#5-data-structures)
+    - [Strings](#strings)
     - [Lists](#lists)
     - [Slicing Lists](#slicing-lists)
     - [Dictionaries](#dictionaries)
     - [Dictionary Iteration](#dictionary-iteration)
     - [Tuples](#tuples)
+    - [Sets](#sets)
 6. [Common Built-in Functions](#6-common-built-in-functions)
 7. [Modules and Imports](#7-modules-and-imports)
 
@@ -130,6 +132,45 @@ print(greet("Kai"))  # Output: Hello, Kai!
 
 ## 5. Data Structures
 
+### Strings
+```python
+
+# Removing whitespaces:
+to_strip = "  Hello, Kai!  "
+to_strip.strip()  # "Hello, Kai!" (Removes both leading and trailing spaces)
+to_strip.lstrip()  # "Hello, Kai!  " (Removes leading spaces)
+to_strip.rstrip()  # "  Hello, Kai!" (Removes trailing spaces)
+
+# Changing case:
+my_string = "Hello, Kai!"
+my_string.lower()  # "  hello, kai!  " (Converts to lowercase)
+my_string.upper()  # "  HELLO, KAI!  " (Converts to uppercase)
+
+my_string2 = "hello, kai!"
+my_string2.capitalize()  # "Hello, kai!" (Capitalizes the first letter of the string)
+
+# Finding Substrings:
+my_string.find("Kai")  # 7 (Returns the index of the first occurrence of a substring)
+
+my_string3 = "Hello, Kai! Hello, Kai!"
+my_string3.count("Kai")  # 2 (Counts the number of occurrences of a substring)
+
+my_string.replace("Kai", "World")  # "Hello, World!" (original was "Hello, Kai!")
+
+# String Splitting and Joining:
+my_string4 = "apple,banana,mango"
+# (Splits a string into a list based on a delimiter, in this case a ',')
+my_string4.split(",")  # ['apple', 'banana', 'mango'] (string to list)
+
+fruits = ['apple', 'banana', 'mango']
+# (Joins elements of a list into a string with a delimiter, in this case with a ', ')
+my_string = ", ".join(fruits)  # "apple, banana, mango" (list to string)
+
+# Checking String Contents:
+my_string.startswith("Hello")  # True
+my_string.endswith("Kai!")  # True
+```
+
 ### Lists
 ```python
 # Create a list
@@ -156,10 +197,6 @@ del my_list[2]  # Removes element at index 2 (3)
 #### **Slicing Lists**
 
 Slicing is used to access a portion (sublist) of a list. You can specify a range of indices to create a new list or to modify an existing list.
-
-`start`: Index to start the slice (inclusive).
-`end`: Index to end the slice (exclusive).
-`step`: (Optional) The increment between each index.
 
 ##### **Syntax:**
 ```python
@@ -255,6 +292,29 @@ my_tuple[0]  # 1
 
 # Modify element
 my_tuple[1] = 10 # Not allowed, will output a type error: 'tuple' object does not support item assignment
+
+
+```
+
+### Sets
+```python
+# Creating a set
+cities = {'Amsterdam', 'Rotterdam', 'The Hague', 'Amsterdam', 'Utrecht'}  # Initial set with duplicates
+
+# Adding an element
+cities.add('Eindhoven')
+
+# Removing an element
+cities.remove('Rotterdam')
+
+# Checking membership
+'Amsterdam' in cities  # Returns True
+
+# Set operations
+set_a = {'Amsterdam', 'Rotterdam', 'The Hague'}
+set_b = {'Rotterdam', 'Utrecht'}
+print(set_a | set_b)  # Union: {'Amsterdam', 'Rotterdam', 'The Hague', 'Utrecht'}
+print(set_a & set_b)  # Intersection: {'Rotterdam'}
 ```
 
 
