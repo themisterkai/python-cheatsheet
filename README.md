@@ -7,6 +7,11 @@
 3. [Control Flow](#3-control-flow)
 4. [Functions](#4-functions)
 5. [Data Structures](#5-data-structures)
+    - [Lists](#lists)
+    - [Slicing Lists](#slicing-lists)
+    - [Dictionaries](#dictionaries)
+    - [Dictionary Iteration](#dictionary-iteration)
+    - [Tuples](#tuples)
 6. [Common Built-in Functions](#6-common-built-in-functions)
 7. [Modules and Imports](#7-modules-and-imports)
 
@@ -110,7 +115,6 @@ for i in range(5):
 ```
 
 
-
 ### List Comprehension
 ```python
 doubled = [x*2 for x in range(5)]  # [0, 2, 4, 6, 8]
@@ -149,7 +153,7 @@ my_list.pop() # Removes the last element
 del my_list[2]  # Removes element at index 2 (3)
 ```
 
-#### **Slicing Lists in Python**
+#### **Slicing Lists**
 
 Slicing is used to access a portion (sublist) of a list. You can specify a range of indices to create a new list or to modify an existing list.
 
@@ -161,55 +165,45 @@ Slicing is used to access a portion (sublist) of a list. You can specify a range
 ```python
 list[start:end:step]
 ```
-`start`: Index to start the slice (inclusive).
-`end`: Index to end the slice (exclusive).
-`step`: (Optional) The increment between each index.
+- `start`: Index to start the slice (inclusive).
+- `end`: Index to end the slice (exclusive).
+- `step`: (Optional) The increment between each index.
 
 
-#### **Examples:**
-
-##### 1. **Basic Slicing**
+##### **Examples:**
 ```python
+1. Basic Slicing
+
 my_list = [1, 2, 3, 4, 5, 6, 7]
 sublist = my_list[2:5]  # Gets elements at indices 2, 3, 4 (values 3, 4, 5)
 
 print(sublist)  # Output: [3, 4, 5]
-```
 
-##### 2. **Slicing with Start Only**
-```python
+2. Slicing with Start Only
 my_list = [1, 2, 3, 4, 5, 6, 7]
 sublist = my_list[2:]  # Gets elements starting at index 2 until the end of the list
 
 print(sublist)  # Output: [3, 4, 5, 6, 7]
-```
 
-##### 3. **Slicing with End Only**
-```python
+3. Slicing with End Only
 my_list = [1, 2, 3, 4, 5, 6, 7]
 sublist = my_list[:4]  # Gets elements from the start up to index 4 (exclusive)
 
 print(sublist)  # Output: [1, 2, 3, 4]
-```
 
-##### 4. **Slicing with Step**
-```python
+4. Slicing with Step
 my_list = [1, 2, 3, 4, 5, 6, 7]
 sublist = my_list[0:7:2]  # Gets every second element
 
 print(sublist)  # Output: [1, 3, 5, 7]
-```
 
-##### 5. **Negative Indices**
-```python
+5. Negative Indices
 my_list = [1, 2, 3, 4, 5, 6, 7]
 sublist = my_list[-4:-1]  # Gets elements at indices -4, -3, -2 (values 4, 5, 6)
 print(sublist)  # Output: [4, 5, 6]
-```
 
-##### 6. **Removing a Sublist**
+6. Removing a Sublist
 You can remove a range of elements from a list using the `del` statement:
-```python
 my_list = [1, 2, 3, 4, 5, 6, 7]
 del my_list[2:5]  # Removes elements at indices 2, 3, and 4 (values 3, 4, 5)
 
