@@ -223,7 +223,7 @@ my_dict["name"]  # Kai
 my_dict["city"] = "Amsterdam"
 
 # Dictionary methods
-my_dict.keys()  # dict_keys(['name', 'age', 'city'])
+my_dict.keys()  # dict_keys(['name', 'profession', 'city'])
 my_dict.values()  # dict_values(['Kai', 'Software Engineer', 'Amsterdam'])
 ```
 
