@@ -8,6 +8,7 @@
 4. [Functions](#4-functions)
 5. [Data Structures](#5-data-structures)
     - 5.1 [Strings](#51-strings)
+    - 5.1.1 [Slicing Strings](#511-slicing-strings)
     - 5.2 [Lists](#52-lists)
     - 5.2.1 [Slicing Lists](#521-slicing-lists)
     - 5.3 [Dictionaries](#53-dictionaries)
@@ -124,6 +125,9 @@ for i in range(5):
 ### List Comprehension
 ```python
 doubled = [x*2 for x in range(5)]  # [0, 2, 4, 6, 8]
+
+# List comprehension with condition
+even_numbers = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]
 ```
 
 ## 4. Functions
@@ -192,6 +196,40 @@ my_string3 = "Hello, Kai! Hello, Kai!"
 my_string3.count("Kai")  # 2 (Counts the number of occurrences of a substring)
 ```
 
+#### 5.1.1 **Slicing Strings**
+
+Slicing is used to access a portion of a string (substring). You can specify a range of indices to create a new substring without modifying the original string. The slice includes characters from the starting index up to (but not including) the ending index.
+
+**Syntax:**
+```python
+string[start:end:step]
+```
+- `start`: Index to start the slice (inclusive).
+- `end`: Index to end the slice (exclusive).
+- `step`: (Optional) The increment between each index.
+
+```python
+# Basic Slicing
+sliced_string = "Hello, Kai!"[0:5]  # Gets characters from index 0 to 4 (inclusive)
+print(sliced_string)  # Output: "Hello"
+
+# Slicing with Start Only
+sliced_string = "Hello, Kai!"[7:]  # Gets characters from index 7 to the end
+print(sliced_string)  # Output: "Kai!"
+
+# Slicing with End Only
+sliced_string = "Hello, Kai!"[:5]  # Gets characters from the start to index 5 (exclusive)
+print(sliced_string)  # Output: "Hello"
+
+# Slicing with Step
+sliced_string = "Hello, Kai!"[::2]  # Gets every second character
+print(sliced_string)  # Output: "Hlo ai!"
+
+# Negative Indices
+sliced_string = "Hello, Kai!"[-5:]  # Gets the last 5 characters
+print(sliced_string)  # Output: "Kai!"
+```
+
 ### 5.2 Lists
 ```python
 # Create a list
@@ -229,7 +267,7 @@ sorted([3, 1, 2])  # Returns a new sorted list: Output: [1, 2, 3]
 
 Slicing is used to access a portion (sublist) of a list. You can specify a range of indices to create a new list or to modify an existing list.
 
-##### **Syntax:**
+**Syntax:**
 ```python
 list[start:end:step]
 ```
@@ -237,8 +275,6 @@ list[start:end:step]
 - `end`: Index to end the slice (exclusive).
 - `step`: (Optional) The increment between each index.
 
-
-##### **Examples:**
 ```python
 # Basic Slicing
 my_list = [1, 2, 3, 4, 5, 6, 7]
@@ -353,4 +389,18 @@ print(math.sqrt(16))  # 4.0
 # Import specific function
 from math import pi
 print(pi)  # 3.141592653589793
+
+# Renaming imported module with 'as' 
+import numpy as np
+```
+
+## 7. Error Handling
+Error handling in Python is done using try and except blocks, allowing you to manage exceptions that may occur during program execution.
+
+```python
+try:
+    # Code that may raise an error
+    result = 10 / 0
+except ZeroDivisionError:
+    print("You can't divide by zero!")
 ```
