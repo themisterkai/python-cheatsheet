@@ -3,24 +3,36 @@
 
 ## Table of Contents
 1. [Basics](#1-basics)
+    - 1.1 [Variables and Data Types](#11-variables-and-data-types)
+    - 1.2 [Data Type Conversion](#12-data-type-conversion)
 2. [Operators](#2-operators)
-3. [Control Flow](#3-control-flow)
-4. [Functions](#4-functions)
-5. [Data Structures](#5-data-structures)
-    - 5.1 [Strings](#51-strings)
-    - 5.1.1 [Slicing Strings](#511-slicing-strings)
-    - 5.2 [Lists](#52-lists)
-    - 5.2.1 [Slicing Lists](#521-slicing-lists)
-    - 5.3 [Dictionaries](#53-dictionaries)
-    - 5.3.1 [Dictionary Iteration](#531-dictionary-iteration)
-    - 5.4 [Tuples](#54-tuples)
-    - 5.5 [Sets](#55-sets)
-6. [Modules and Imports](#6-modules-and-imports)
+    - 2.1 [Arithmetic](#21-arithmetic)
+    - 2.2 [Comparison](#22-comparison)
+    - 2.3 [Logical](#23-logical)
+3. [Strings](#3-strings)
+    - 3.1 [String Methods](#31-string-methods)
+    - 3.1 [Slicing Strings](#32-slicing-strings)
+4. [Control Flow](#4-control-flow)
+    - 4.1 [If / Else Statements](#41-ifelse-statements)
+    - 4.2 [Loops](#42-loops)
+    - 4.3 [List Comprehension](#43-list-comprehension)
+5. [Functions](#5-functions)
+6. [Data Structures](#5-data-structures)
+    - 6.1 [Lists](#61-lists)
+        - 6.1.1 [List Methods](#611-list-methods)
+        - 6.1.2 [Slicing Lists](#612-slicing-lists)
+    - 6.2 [Dictionaries](#53-dictionaries)
+        - 6.2.1 [Dictionary Methods](#621-dictionary-methods)
+        - 6.2.2 [Dictionary Iteration](#622-dictionary-iteration)
+    - 6.3 [Tuples](#54-tuples)
+    - 6.4 [Sets](#55-sets)
+7. [Modules and Imports](#6-modules-and-imports)
+8. [Error Handling](#8-error-handling)
 
 
 ## 1. Basics
 
-### Variables and Data Types
+### 1.1 Variables and Data Types
 ```python
 # Variables
 x = 1  # Integer
@@ -32,7 +44,7 @@ is_male = True  # Boolean
 type(x)  # <class 'int'>
 ```
 
-### Data Type Conversion
+### 1.2 Data Type Conversion
 ```python
 int(2.5)  # 2
 float(5)  # 5.0
@@ -43,7 +55,7 @@ bool(10)  # True: should be true for any non 0 number both positive and negative
 
 ## 2. Operators
 
-### Arithmetic
+### 2.1 Arithmetic
 ```python
 a = 10 + 5  # Addition
 b = 10 - 5  # Subtraction
@@ -54,7 +66,7 @@ f = 10 % 3  # Modulo (find the remainder)
 g = 2 ** 3  # Exponentiation (2 to the power of 3 in this example)
 ```
 
-### Comparison
+### 2.2 Comparison
 ```python
 1 == 2  # False
 1 != 2  # True
@@ -62,16 +74,112 @@ g = 2 ** 3  # Exponentiation (2 to the power of 3 in this example)
 1 <= 2  # True
 ```
 
-### Logical
+### 2.3 Logical
 ```python
 True and False  # False
 True or False  # True
 not True  # False
 ```
 
-## 3. Control Flow
+## 3. Strings
 
-### If/Else Statements
+### 3.1 String Methods
+```python
+my_string = "Hello, Kai!"
+
+# Length of a String:
+len(my_string)  # 11
+
+# Reversing a String
+my_string[::-1]  # "!iaK ,olleH"
+
+# Changing case:
+my_string.lower()  # "hello, kai!" (Converts to lowercase)
+my_string.upper()  # "HELLO, KAI!" (Converts to uppercase)
+
+my_string2 = "hello, kai!"
+my_string2.capitalize()  # "Hello, kai!" (Capitalizes the first letter of the string)
+my_string2.title()  # "Hello, Kai!" (Converts the first character of each word to uppercase)
+
+# Finding Substrings:
+my_string.find("Kai")  # 7 (Returns the index of the first occurrence of a substring)
+my_string.index("Kai") # 7 (Returns the index of the first occurrence (same as find))
+
+# Finding Substrings with start and end parameters
+my_string.index("o", 0, 5)  # 4 (Searches for "o" only between index 0 (inclusive) and 5(exclusive))
+
+# Replacing Substrings:
+my_string.replace("Kai", "World")  # "Hello, World!" (original was "Hello, Kai!")
+
+# String Splitting and Joining:
+my_string4 = "apple,banana,mango"
+# (Splits a string into a list based on a delimiter, in this case a ',')
+my_string4.split(",")  # ['apple', 'banana', 'mango'] (string to list)
+
+fruits = ['apple', 'banana', 'mango']
+# (Joins elements of a list into a string with a delimiter, in this case with a ', ')
+my_string = ", ".join(fruits)  # "apple, banana, mango" (list to string)
+
+# Check String Contents:
+my_string.startswith("Hello")  # True
+my_string.endswith("Kai!")  # True
+"abcdef123".isalnum()  # True if all characters are letters and numbers only. no space or special characters 
+"333".isdigit()  # True if all characters are digits. no space or special characters.
+"abc".isalpha()  # True if all characters must be latin letters. no space, numbers, or special characters)
+"   ".isspace()  # True if all characters must be spaces)
+
+# Checking for Lowercase and Uppercase
+"hello".islower()  # True
+"HELLO".isupper()  # True
+
+# Removing whitespaces:
+to_strip = "  Hello, Kai!  "
+to_strip.strip()  # "Hello, Kai!" (Removes both leading and trailing spaces)
+to_strip.lstrip()  # "Hello, Kai!  " (Removes leading spaces)
+to_strip.rstrip()  # "  Hello, Kai!" (Removes trailing spaces)
+
+# Counting Substrings:
+my_string3 = "Hello, Kai! Hello, Kai!"
+my_string3.count("Kai")  # 2 (Counts the number of occurrences of a substring)
+```
+
+### 3.2 Slicing Strings
+
+Slicing is used to access a portion of a string (substring). You can specify a range of indices to create a new substring without modifying the original string. The slice includes characters from the starting index up to (but not including) the ending index.
+
+**Syntax:**
+```python
+string[start:end:step]
+```
+- `start`: Index to start the slice (inclusive).
+- `end`: Index to end the slice (exclusive).
+- `step`: (Optional) The increment between each index.
+
+```python
+# Basic Slicing
+sliced_string = "Hello, Kai!"[0:5]  # Gets characters from index 0 to 4 (inclusive)
+print(sliced_string)  # Output: "Hello"
+
+# Slicing with Start Only
+sliced_string = "Hello, Kai!"[7:]  # Gets characters from index 7 to the end
+print(sliced_string)  # Output: "Kai!"
+
+# Slicing with End Only
+sliced_string = "Hello, Kai!"[:5]  # Gets characters from the start to index 5 (exclusive)
+print(sliced_string)  # Output: "Hello"
+
+# Slicing with Step
+sliced_string = "Hello, Kai!"[::2]  # Gets every second character
+print(sliced_string)  # Output: "Hlo ai!"
+
+# Negative Indices
+sliced_string = "Hello, Kai!"[-5:]  # Gets the last 5 characters
+print(sliced_string)  # Output: "Kai!"
+```
+
+## 4. Control Flow
+
+### 4.1 If/Else Statements
 ```python
 if x > 0:
     print("x is greater than 0")
@@ -81,7 +189,7 @@ else:
     print("x is less than 0")
 ```
 
-### Loops
+### 4.2 Loops
 ```python
 # While Loop
 count = 0
@@ -121,8 +229,7 @@ for i in range(5):
     print(i)    
 ```
 
-
-### List Comprehension
+### 4.3 List Comprehension
 ```python
 doubled = [x*2 for x in range(5)]  # [0, 2, 4, 6, 8]
 
@@ -130,7 +237,7 @@ doubled = [x*2 for x in range(5)]  # [0, 2, 4, 6, 8]
 even_numbers = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]
 ```
 
-## 4. Functions
+## 5. Functions
 ```python
 def greet(name):
     return f"Hello, {name}!"
@@ -138,99 +245,11 @@ def greet(name):
 print(greet("Kai"))  # Output: Hello, Kai!
 ```
 
-## 5. Data Structures
+## 6. Data Structures
 
-### 5.1 Strings
-```python
-my_string = "Hello, Kai!"
+### 6.1 Lists
 
-# Length of a String:
-len(my_string)  # 11
-
-# Reversing a String
-my_string[::-1]  # "!iaK ,olleH"
-
-# Changing case:
-my_string.lower()  # "hello, kai!" (Converts to lowercase)
-my_string.upper()  # "HELLO, KAI!" (Converts to uppercase)
-
-my_string2 = "hello, kai!"
-my_string2.capitalize()  # "Hello, kai!" (Capitalizes the first letter of the string)
-my_string2.title()  # "Hello, Kai!" (Converts the first character of each word to uppercase)
-
-# Finding Substrings:
-my_string.find("Kai")  # 7 (Returns the index of the first occurrence of a substring)
-
-# Replacing Substrings:
-my_string.replace("Kai", "World")  # "Hello, World!" (original was "Hello, Kai!")
-
-# String Splitting and Joining:
-my_string4 = "apple,banana,mango"
-# (Splits a string into a list based on a delimiter, in this case a ',')
-my_string4.split(",")  # ['apple', 'banana', 'mango'] (string to list)
-
-fruits = ['apple', 'banana', 'mango']
-# (Joins elements of a list into a string with a delimiter, in this case with a ', ')
-my_string = ", ".join(fruits)  # "apple, banana, mango" (list to string)
-
-# Check String Contents:
-my_string.startswith("Hello")  # True
-my_string.endswith("Kai!")  # True
-"abcdef123".isalnum()  # True if all characters are letters and numbers only. no space or special characters 
-"333".isdigit()  # True if all characters are digits. no space or special characters.
-"abc".isalpha()  # True if all characters must be latin letters. no space, numbers, or special characters)
-"   ".isspace()  # True if all characters must be spaces)
-
-# Checking for Lowercase and Uppercase
-"hello".islower()  # True
-"HELLO".isupper()  # True
-
-# Removing whitespaces:
-to_strip = "  Hello, Kai!  "
-to_strip.strip()  # "Hello, Kai!" (Removes both leading and trailing spaces)
-to_strip.lstrip()  # "Hello, Kai!  " (Removes leading spaces)
-to_strip.rstrip()  # "  Hello, Kai!" (Removes trailing spaces)
-
-# Counting Substrings:
-my_string3 = "Hello, Kai! Hello, Kai!"
-my_string3.count("Kai")  # 2 (Counts the number of occurrences of a substring)
-```
-
-#### 5.1.1 **Slicing Strings**
-
-Slicing is used to access a portion of a string (substring). You can specify a range of indices to create a new substring without modifying the original string. The slice includes characters from the starting index up to (but not including) the ending index.
-
-**Syntax:**
-```python
-string[start:end:step]
-```
-- `start`: Index to start the slice (inclusive).
-- `end`: Index to end the slice (exclusive).
-- `step`: (Optional) The increment between each index.
-
-```python
-# Basic Slicing
-sliced_string = "Hello, Kai!"[0:5]  # Gets characters from index 0 to 4 (inclusive)
-print(sliced_string)  # Output: "Hello"
-
-# Slicing with Start Only
-sliced_string = "Hello, Kai!"[7:]  # Gets characters from index 7 to the end
-print(sliced_string)  # Output: "Kai!"
-
-# Slicing with End Only
-sliced_string = "Hello, Kai!"[:5]  # Gets characters from the start to index 5 (exclusive)
-print(sliced_string)  # Output: "Hello"
-
-# Slicing with Step
-sliced_string = "Hello, Kai!"[::2]  # Gets every second character
-print(sliced_string)  # Output: "Hlo ai!"
-
-# Negative Indices
-sliced_string = "Hello, Kai!"[-5:]  # Gets the last 5 characters
-print(sliced_string)  # Output: "Kai!"
-```
-
-### 5.2 Lists
+#### 6.1.1 List Methods
 ```python
 # Create a list
 my_list = [1, 2, 3, 4, 5]
@@ -263,7 +282,7 @@ sum([1, 2, 'three', 4, 5]) # will return a TypeError, sum requires numeric argum
 sorted([3, 1, 2])  # Returns a new sorted list: Output: [1, 2, 3] 
 ```
 
-#### 5.2.1 **Slicing Lists**
+#### 6.1.2 Slicing Lists
 
 Slicing is used to access a portion (sublist) of a list. You can specify a range of indices to create a new list or to modify an existing list.
 
@@ -309,7 +328,9 @@ print(my_list)  # Output: [1, 2, 6, 7]
 ```
 
 
-### 5.3 Dictionaries
+### 6.2 Dictionaries
+
+#### 6.2.1 Dictionary Methods
 ```python
 # Create a dictionary
 my_dict = {"name": "Kai", "profession": "Software Engineer"}
@@ -325,7 +346,7 @@ my_dict.keys()  # dict_keys(['name', 'profession', 'city'])
 my_dict.values()  # dict_values(['Kai', 'Software Engineer', 'Amsterdam'])
 ```
 
-#### 5.3.1 Dictionary Iteration
+#### 6.2.2 Dictionary Iteration
 ```python
 my_dict = {"name": "Kai", "profession": "Software Engineer"}
 
@@ -339,7 +360,7 @@ for key, value in my_dict.items():
     print(f"{key}: {value}")
 ```
 
-### 5.4 Tuples
+### 6.3 Tuples
 What is the difference between a *list* and a *tuple*? 
 
 A *list* is mutable, meaning you can add, remove, or change the elements that are definied in it.
@@ -358,7 +379,7 @@ my_tuple[1] = 10 # Raises TypeError: 'tuple' object does not support item assign
 
 ```
 
-### 5.5 Sets
+### 6.4 Sets
 ```python
 # Creating a set
 cities = {'Amsterdam', 'Rotterdam', 'The Hague', 'Amsterdam', 'Utrecht'} # 'Amsterdam' will only appear once
@@ -379,8 +400,7 @@ print(set_a | set_b)  # Union: {'Amsterdam', 'Rotterdam', 'The Hague', 'Utrecht'
 print(set_a & set_b)  # Intersection: {'Rotterdam'}
 ```
 
-
-## 6. Modules and Imports
+## 7. Modules and Imports
 ```python
 # Import a module
 import math
@@ -394,7 +414,7 @@ print(pi)  # 3.141592653589793
 import numpy as np
 ```
 
-## 7. Error Handling
+## 8. Error Handling
 Error handling in Python is done using try and except blocks, allowing you to manage exceptions that may occur during program execution.
 
 ```python
