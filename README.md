@@ -11,12 +11,15 @@
     - 2.3 [Logical](#23-logical)
 3. [Strings](#3-strings)
     - 3.1 [String Methods](#31-string-methods)
-    - 3.1 [Slicing Strings](#32-slicing-strings)
+    - 3.2 [Slicing Strings](#32-slicing-strings)
 4. [Control Flow](#4-control-flow)
     - 4.1 [If / Else Statements](#41-ifelse-statements)
     - 4.2 [Loops](#42-loops)
     - 4.3 [List Comprehension](#43-list-comprehension)
 5. [Functions](#5-functions)
+    - 5.1 [Basic Functions](#51-basic-functions)
+    - 5.2 [`*args`](#52-args)
+    - 5.3 [`**kwargs`](#53-kwargs)
 6. [Data Structures](#5-data-structures)
     - 6.1 [Lists](#61-lists)
         - 6.1.1 [List Methods](#611-list-methods)
@@ -35,13 +38,30 @@
 ### 1.1 Variables and Data Types
 ```python
 # Variables
+## Primitives:
 x = 1  # Integer
 y = 1.5  # Float
 name = "Kai"  # String
 is_male = True  # Boolean
+no_value = None  # NoneType (represents the absence of a value)
+
+## Data Structures
+cities = ["Amsterdam", "Stockholm", "Manila"]  # List (ordered, mutable collection)
+coordinates = (59.329, 18.068)  # Tuple (ordered, immutable collection)
+person = {"name": "Kai", "city": "Amsterdam"}  # Dictionary (key-value pairs)
+unique_numbers = {1, 2, 3, 4, 5}  # Set (unordered, unique elements)
 
 # Check types
 type(x)  # <class 'int'>
+type(y)  # <class 'float'>
+type(name)  # <class 'str'>
+type(is_male)  # <class 'bool'>
+type(no_value)  # <class 'NoneType'>
+
+type(fruits)  # <class 'list'>
+type(coordinates)  # <class 'tuple'>
+type(person)  # <class 'dict'>
+type(unique_numbers)  # <class 'set'>
 ```
 
 ### 1.2 Data Type Conversion
@@ -238,12 +258,63 @@ even_numbers = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]
 ```
 
 ## 5. Functions
+
+### 5.1 Basic Functions
 ```python
+# Basic Function
 def greet(name):
     return f"Hello, {name}!"
 
 print(greet("Kai"))  # Output: Hello, Kai!
+
+# Function with default parameter
+def greet(name, greeting="Hello"):
+    return f"{greeting}, {name}!"
+
+print(greet("Kai"))            # Output: Hello, Kai!
+print(greet("Kai", "Hi"))     # Output: Hi, Kai!
+
+# Return multiple values:
+def calculate(a, b):
+    sum_result = a + b
+    diff_result = a - b
+    return sum_result, diff_result
+
+result_sum, result_diff = calculate(10, 5)
+print(result_sum)  # Output: 15
+print(result_diff)  # Output: 5
 ```
+
+### 5.2 `*args`
+- `*args`: Allows a function to accept any number arguments
+
+```python
+def add_numbers(*args):
+    total = 0 
+    for arg in args:
+        total += arg
+    return total
+
+# Example usage
+print(add_numbers(1, 2, 3))      # Output: 6
+print(add_numbers(5, 10, 15, 20)) # Output: 50
+```
+
+### 5.3 `**kwargs`
+- `**kwargs`: Allows a function to accept any number keyword arguments
+
+```python
+def describe_person(**kwargs):
+    for key, value in kwargs.items():
+        print("{}: {}".format(key, value))
+
+describe_person(name="Kai", pet="cat", city="Amsterdam")
+# Output:
+# name: Kai
+# pet: cat
+# city: Amsterdam
+```
+
 
 ## 6. Data Structures
 
