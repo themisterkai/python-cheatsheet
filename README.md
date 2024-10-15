@@ -221,6 +221,14 @@ while count < 5:
 for i in range(5):  
     print(i) # Output: 0, 1, 2, 3, 4
 
+# Loop with steps of 2
+for i in range(0, 10, 2):
+    print(i) # Output: 0, 2, 4, 6, 8
+
+# Loop with steps of -1 (reverse)
+for i in range(5, 0, -1):
+    print(i) # Output: 5, 4, 3, 2, 1
+
 # Looping through a list
 cities = ["Amsterdam", "Leeuwarden", "Den Haag", "Arnhem"]
 for city in cities:
