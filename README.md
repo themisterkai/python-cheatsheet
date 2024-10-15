@@ -251,10 +251,21 @@ for i in range(5):
 
 ### 4.3 List Comprehension
 ```python
+# Create a list by doubling each number in a range of 5
 doubled = [x*2 for x in range(5)]  # [0, 2, 4, 6, 8]
 
 # List comprehension with condition
+# Create a list of even numbers between 0 and 9
 even_numbers = [x for x in range(10) if x % 2 == 0]  # [0, 2, 4, 6, 8]
+
+# List comprehension with multiple conditions
+# Generate a list of tuples where:
+# 1. The first number is even and the second number is odd 
+# 2. Both numbers are between 0 (inclusive) and 6 (exclusive)
+# 3. Exclude pairs where the sum of the two numbers is divisible by 3
+result = [(i, j) for i in range(6) if i % 2 == 0 for j in range(6) if j % 2 != 0 and (i + j) % 3 != 0]
+print(result)
+# Output: [(0, 1), (0, 5), (2, 3), (2, 5), (4, 1), (4, 3)]
 ```
 
 ## 5. Functions
